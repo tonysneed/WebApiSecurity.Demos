@@ -29,7 +29,7 @@ SETUP: OWIN IIS Hosting with SSL
 		app.UseWebApi(config);
 
 		// Add error, welcome pages
-
+		app.UseErrorPage();
 		app.UseWelcomePage();
     }
 
