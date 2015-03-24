@@ -37,12 +37,6 @@ returns claims for an authenticated user.
         app.UseWelcomePage();
     }
 
-3. Select the Web tab of the project properties
-   - For the web server, select OwinHost from the drop down list
-     > Pressing Ctrl+F5 will launch the OwinHost web server and display the welcome page
-   - Replace the default project url with https://web.local:4444/
-     > Press Ctrl+5 to launch OwinHost and verify the SSL certificate binding
-
 PART B: Create Token Service
 
 The Token Service will be used to validate user credentials and issue OAuth Bearer tokens.
@@ -64,12 +58,6 @@ The Token Service will be used to validate user credentials and issue OAuth Bear
         app.UseErrorPage();
         app.UseWelcomePage();
     }
-
-3. Select the Web tab of the project properties
-   - For the web server, select OwinHost from the drop down list
-     > Pressing Ctrl+F5 will launch the OwinHost web server and display the welcome page
-   - Replace the default project url with https://web.local:5555/
-     > Press Ctrl+5 to launch OwinHost and verify the SSL certificate binding
 
 PART C: Create Client App
 
@@ -111,4 +99,11 @@ PART A: Url Reservation and SSL Setup
 	 0.0.0.0:5555
    - Generate a new guid for each binding
    - Click OK to confirm the bindings and close HttpConfig
+
+3. Select the Web tab of the project properties
+   - For the web server, select OwinHost from the drop down list
+     > Pressing Ctrl+F5 will launch the OwinHost web server and display the welcome page
+   - Replace the default project url with https://web.local:4444/ or
+     https://web.local:5555/
+     > Press Ctrl+5 to launch OwinHost and verify the SSL certificate binding
 
