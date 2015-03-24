@@ -7,9 +7,11 @@ using KatanaTokenAuth.RelyingParty.Models;
 
 namespace KatanaTokenAuth.RelyingParty.Controllers
 {
+    [Authorize] // Require authentication
     public class ClaimsController : ApiController
     {
         // GET: api/claims
+        [HostAuthentication("Bearer")] // Use bearer auth
         [ResponseType(typeof(IEnumerable<ClaimInfo>))]
         public IHttpActionResult Get()
         {

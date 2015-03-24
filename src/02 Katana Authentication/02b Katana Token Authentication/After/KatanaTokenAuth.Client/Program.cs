@@ -11,22 +11,23 @@ namespace KatanaTokenAuth.Client
         static void Main(string[] args)
         {
             // Create http client
+            const string address1 = "http://localhost:50858/api/";
             const string address = "https://web.local:4444/api/";
             var client = new HttpClient { BaseAddress = new Uri(address) };
 
             // Prompt for credentials
-            //Console.WriteLine("Authenticate? {Y/N}:");
-            //bool authenticate = Console.ReadLine().ToUpper() == "Y";
-            //if (authenticate)
-            //{
-            //    Console.WriteLine("Enter user name:");
-            //    string username = Console.ReadLine();
-            //    Console.WriteLine("Enter password:");
-            //    string password = Console.ReadLine();
-            //    string token = GetToken(username, password);
-            //    client.DefaultRequestHeaders.Authorization =
-            //        new AuthenticationHeaderValue("Bearer", token);
-            //}
+            Console.WriteLine("Authenticate? {Y/N}:");
+            bool authenticate = Console.ReadLine().ToUpper() == "Y";
+            if (authenticate)
+            {
+                Console.WriteLine("Enter user name:");
+                string username = Console.ReadLine();
+                Console.WriteLine("Enter password:");
+                string password = Console.ReadLine();
+                string token = GetToken(username, password);
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", token);
+            }
 
             // Issue get request
             var response = client.GetAsync("claims").Result;
@@ -39,6 +40,7 @@ namespace KatanaTokenAuth.Client
                 Console.WriteLine(requestEx.Message);
                 return;
             }
+            
             var claims = response.Content.ReadAsAsync<IEnumerable<ClaimInfo>>().Result;
             if (claims != null && claims.Any())
             {
@@ -59,7 +61,8 @@ namespace KatanaTokenAuth.Client
 
         private static string GetToken(string username, string password)
         {
-            const string address = "https://web.local:5555/";
+            const string address = "http://localhost:50799/";
+            const string address1 = "https://web.local:5555/";
             var client = new HttpClient { BaseAddress = new Uri(address) };
 
             var fields = new Dictionary<string, string>
