@@ -149,3 +149,15 @@ when requesting a resource from the Reply Party.
 
 1. Uncomment the code in Program.Main which prompts for credentials.
 
+PART D: Use SSL with IIS (Optional)
+
+1. If not done already, configure the web sites in IIS to use SSL
+   - Add a binding for web.local for https
+
+2. Specify machine keys in web.config for both RP and TS web apps
+   - In IIS, select web app, Machine Key
+   - Uncheck both checkboxes for generating a unique key for each app
+   - Copy the keys from one web config file to another
+
+3. Update the client url addresses.
+

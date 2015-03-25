@@ -11,8 +11,8 @@ namespace KatanaTokenAuth.Client
         static void Main(string[] args)
         {
             // Create http client
-            const string address1 = "http://localhost:50858/api/";
-            const string address = "https://web.local:4444/api/";
+            const string address = "http://localhost:50858/api/";
+           //const string address = "https://web.local/KatanaTokenAuth.RelyingParty-After/api/";
             var client = new HttpClient { BaseAddress = new Uri(address) };
 
             // Prompt for credentials
@@ -62,7 +62,7 @@ namespace KatanaTokenAuth.Client
         private static string GetToken(string username, string password)
         {
             const string address = "http://localhost:50799/";
-            const string address1 = "https://web.local:5555/";
+            //const string address = "https://web.local/KatanaTokenAuth.TokenService-After/";
             var client = new HttpClient { BaseAddress = new Uri(address) };
 
             var fields = new Dictionary<string, string>

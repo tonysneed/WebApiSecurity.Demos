@@ -2,6 +2,7 @@
 using KatanaTokenAuth.RelyingParty;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 
